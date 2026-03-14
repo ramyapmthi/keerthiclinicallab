@@ -365,7 +365,7 @@ header.scrolled .navbar {
   margin-left: auto;
 }
 
-.mobile-toggle {
+.menu-toggle {
   display: none;
   font-size: 1.5rem;
   color: var(--primary);
@@ -1424,7 +1424,7 @@ footer {
   .page-header { padding: 9rem 0 4rem; }
   .page-header h1 { font-size: 2.5rem; }
   
-  .mobile-toggle { display: block; }
+  .menu-toggle { display: block; }
   
   .nav-menu {
     position: fixed;
@@ -1614,5 +1614,36 @@ footer {
   }
   .premium-features-header h2 {
       font-size: 30px;
+  }
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.mobile-menu a {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu.active {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 }

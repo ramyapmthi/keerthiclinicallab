@@ -30,7 +30,7 @@
                 Keerthi<span>Lab</span>
             </a>
 
-            <nav class="nav-menu">
+            <nav class="nav-menu desktop-menu">
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -42,17 +42,27 @@
                 </ul>
             </nav>
 
-            <div class="header-cta">
+            <div class="header-cta desktop-menu">
                 <a href="tel:+917780315365" class="btn btn-primary">
                     <i class="fa-solid fa-phone" aria-hidden="true"></i> CALL NOW
                 </a>
             </div>
 
-            <button class="mobile-toggle" aria-label="Toggle menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
                 <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
         </div>
     </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="premium-services.html">Premium Services</a>
+        <a href="health-checkups.html">Health Checkups</a>
+        <a href="home-visit.html">Home Visit</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -491,25 +501,13 @@
     <!-- Scripts -->
     <script src="assets/js/script.js"></script>
     <script>
-        // Update styling for mobile menu logic inline update if needed due to header changes
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggle = document.querySelector('.mobile-toggle');
-            const menu = document.querySelector('.nav-menu');
-            const cta = document.querySelector('.header-cta');
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById("menuToggle");
+            const mobileMenu = document.getElementById("mobileMenu");
 
-            if (toggle && menu) {
-                toggle.addEventListener('click', () => {
-                    const isActive = menu.classList.contains('active');
-                    if (isActive) {
-                        menu.style.height = '0';
-                        menu.classList.remove('active');
-                        setTimeout(() => { cta.style.display = 'none'; }, 200) // Ensure it hides gracefully
-                    } else {
-                        // In mobile we append the cta to nav menu
-                        if (window.innerWidth <= 1024) { cta.style.display = 'flex'; menu.appendChild(cta); }
-                        menu.classList.add('active');
-                        menu.style.height = 'calc(100vh - 76px)';
-                    }
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("active");
                 });
             }
         });
